@@ -1,4 +1,7 @@
 import { Flights } from "./flights";
+import { emailMeDaddy } from "./utils";
+
+require('dotenv').config();
 
 interface Args {
     dateRange: string[],
@@ -8,7 +11,7 @@ interface Args {
     endFrom: string,
 }
 
-new Flights(["16th March 2023", "20th March 2023"], "ykosiner@gmail.com", 3000, "Brazil", "London - Heathrow").init()
+// new Flights(["16th March 2023", "20th March 2023"], "ykosiner@gmail.com", 3000, "Brazil", "London - Heathrow").init()
 const argsArr = process.argv.slice(2);
 const args: Args = {
     dateRange: [argsArr[0], argsArr[1]],
@@ -18,6 +21,6 @@ const args: Args = {
     endFrom: argsArr[5],
 };
 
-console.log(args);
-
 new Flights(args.dateRange, args.email, args.price, args.startFrom, args.endFrom).init();
+
+emailMeDaddy("<h1>Hello world</h1><br /><p>Cum</p>", args.email);
